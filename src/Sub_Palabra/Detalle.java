@@ -66,5 +66,7 @@ public class Detalle implements Comparable<Detalle>{
         return palabra.getNombre().compareToIgnoreCase(o.getPalabra().getNombre());
     }
 
-    
+    public int cantidadDeArchivos(){
+        return archivo.size();
+    }
 }

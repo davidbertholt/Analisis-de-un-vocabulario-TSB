@@ -5,6 +5,7 @@
  */
 package Sub_Palabra;
 
+import Sub_Palabra.Lista.SimpleList;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,23 +16,13 @@ import javafx.collections.transformation.SortedList;
  * @author Lucas
  */
 public class Maestro {
-    private List<Detalle> detallepalabras;
+    private SimpleList detallepalabras;
     
     public Maestro() {
-    detallepalabras = new ArrayList<Detalle>();
+    detallepalabras = new SimpleList();
     }
     
     public void procesarPalabra(String palabra, File archivo){
-        boolean bandera = true;
-        for (Detalle Detallepalabra : detallepalabras) {
-            if(Detallepalabra.existePalabra(palabra)){
-                bandera = false;
-                break;
-            }
-        }
-        
-        if(bandera){
-           
-        }
+        detallepalabras.procesarPalabra(palabra, archivo);
     }
 }

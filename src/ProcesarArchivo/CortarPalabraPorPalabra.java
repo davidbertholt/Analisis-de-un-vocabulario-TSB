@@ -18,7 +18,10 @@ public class CortarPalabraPorPalabra {
     public Maestro run(List<String> lista, File archivo){
         Maestro contenedor = new Maestro();
         
-        
+        for (String renglon : lista) {
+            char[] renglonAux = convertirStrintAChar(renglon);
+            contenedor = valuarArray(renglonAux, contenedor, archivo);
+        }
         
         return contenedor;
     }
@@ -29,5 +32,31 @@ public class CortarPalabraPorPalabra {
        char[] aCaracteres = linea.toCharArray();
        
        return aCaracteres;
+    }
+    
+    public Maestro valuarArray(char[] cadena, Maestro maestro, File archivo) {
+       String aux = "";
+       
+       for (char c : cadena) {
+           
+           if(validarCaracter(c)){
+              
+              aux = aux.toUpperCase();
+               maestro.procesarPalabra(aux, archivo);
+               aux = "";
+           }else{
+               aux+=c;
+           }
+       }
+       aux = aux.toUpperCase();
+       maestro.procesarPalabra(aux, archivo);
+       
+       System.out.println(sl.getCantidad());
+       
+       return maestro;
+   }
+    
+    private boolean validarCaracter(char c){
+        return (c == ' ');
     }
 }
