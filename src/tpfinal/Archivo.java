@@ -12,26 +12,12 @@ import java.io.File;
  * @author Lucas
  */
 public class Archivo {
-    private String nombre;
     private File archivo;
 
-    public Archivo(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Archivo(String nombre, File archivo) {
-        this.nombre = nombre;
+    public Archivo(File archivo) {
         this.archivo = archivo;
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
+    
     public File getArchivo() {
         return archivo;
     }
