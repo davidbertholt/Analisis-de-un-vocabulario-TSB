@@ -6,6 +6,7 @@
 package tpfinal.procesarArchivo;
 
 import java.io.File;
+import java.util.List;
 import tpfinal.Maestro;
 
 /**
@@ -25,7 +26,11 @@ public class GestorProcesarArchivos {
     
     public Maestro procesarArchivo(){
         Maestro contenedorAux = new Maestro();
-        System.out.println("djksghdfsioughdfuiopd");
+        List<String> renglones;
+        
+        renglones = primeraEtapa.run();
+        
+        
         return contenedorAux;
     }
     

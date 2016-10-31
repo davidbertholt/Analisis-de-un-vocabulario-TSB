@@ -6,6 +6,8 @@
 package tpfinal.procesarArchivo;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,6 +18,12 @@ public class CortarRenglones {
 
     public CortarRenglones(File archivo) {
         this.archivo = archivo;
+    }
+
+   public List<String> run() {
+        List<String> listaAux = new ArrayList<>();
+        
+        return listaAux;
     }
     
     
