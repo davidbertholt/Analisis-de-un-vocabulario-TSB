@@ -5,18 +5,21 @@
  */
 package tpfinal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Lucas
  */
 public class Detalle {
     private int frecuencia;
-    private Archivo archivo;
+    private List<Archivo> archivo;
     private Palabra palabra;
 
-    public Detalle(int frecuencia, Archivo archivo, Palabra palabra) {
+    public Detalle(int frecuencia, Palabra palabra) {
         this.frecuencia = frecuencia;
-        this.archivo = archivo;
+        this.archivo = new ArrayList<>();
         this.palabra = palabra;
     }
 
@@ -28,12 +31,12 @@ public class Detalle {
         this.frecuencia = frecuencia;
     }
 
-    public Archivo getArchivo() {
+    public List getArchivo() {
         return archivo;
     }
 
-    public void setArchivo(Archivo archivo) {
-        this.archivo = archivo;
+    public void agregarArchivo(Archivo archivo) {
+        this.archivo.add(archivo);
     }
 
     public Palabra getPalabra() {

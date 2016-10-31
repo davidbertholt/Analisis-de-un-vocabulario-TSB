@@ -5,10 +5,18 @@
  */
 package tpfinal.procesarArchivo;
 
+import java.io.File;
+
 /**
  *
  * @author Lucas
  */
 public class CortarRenglones {
+    private File archivo;
+
+    public CortarRenglones(File archivo) {
+        this.archivo = archivo;
+    }
+    
     
 }
