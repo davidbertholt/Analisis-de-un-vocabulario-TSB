@@ -10,6 +10,7 @@ package Sub_Palabra.Lista;
  * @author Lucas
  */
 import Sub_Palabra.Detalle;
+import java.io.File;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -57,8 +58,35 @@ public class SimpleList implements Iterable, Serializable
             cantidad++;
       }  
       
-      public void procesarPalabra(String palabra){
+      public void procesarPalabra(String palabra, File archivo){
           
+            Node p = frente, q = null;
+            boolean banderaCicloPalabraIgual = true;
+            boolean banderaCicloOrden = true;
+            
+            while ( p != null && banderaCicloPalabraIgual && banderaCicloOrden )
+            {
+                if(palabra.compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) == 0){
+                    p.getInfo().aumentarFrecuencia();
+                    banderaCicloPalabraIgual = false;
+                }
+                
+                if(palabra.compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) < 0){
+                    banderaCicloOrden = false;
+                }
+                
+                q = p;
+                p = p.getNext();
+            }
+            
+            if(!banderaCicloOrden){
+            Detalle x = new Detalle(palabra, archivo);
+            Node nuevo = new Node( x, null );
+            nuevo.setNext( p );
+            if( q != null ) q.setNext( nuevo );
+            else frente = nuevo;
+            cantidad++;  
+            } 
       }
       
       public void addInOrder(Detalle x)
@@ -67,7 +95,7 @@ public class SimpleList implements Iterable, Serializable
             
             Node nuevo = new Node( x, null );
             Node p = frente, q = null;
-            while ( p != null && x.compareToIgnoreCase(p.getInfo() ) >= 0 )
+            while ( p != null && x.getPalabra().getNombre().compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) >= 0 )
             {
                 q = p;
                 p = p.getNext();
@@ -78,24 +106,6 @@ public class SimpleList implements Iterable, Serializable
             cantidad++;
       }             
       
-      public void coordinaTodo(Detalle x){
-          if(!existeLaPalabra(x)){
-              addInOrder(x);
-          }//acomodar los dos ciclos
-      }
-      
-      public boolean existeLaPalabra( String x )
-      {
-            for ( Node p = frente; p != null; p = p.getNext() )
-            {
-                if( p.esIgual(x) ) {
-                    p.aumentarFrecuencia();
-                    return true;
-                }
-                
-            }
-            return false;
-      }
       
       public void addLast( Detalle x )
       {
@@ -255,7 +265,7 @@ public class SimpleList implements Iterable, Serializable
             return null;
       }
             
-      public Comparable set( int index, String x )
+      public Comparable set( int index, Detalle x )
       {
           if( ! isHomogeneus( x ) ) throw new ClassCastException( "Objeto incompatible" );
           if( index < 0 || index >= size() ) throw new NoSuchElementException( "Indice fuera del rango" );

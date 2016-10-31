@@ -54,8 +54,11 @@ public class Detalle implements Comparable<Detalle>{
             frecuencia++;
             return true;
         }
-        return false;
-        
+        return false;   
+    }
+    
+    public void aumentarFrecuencia(){
+        frecuencia++;
     }
 
     @Override
