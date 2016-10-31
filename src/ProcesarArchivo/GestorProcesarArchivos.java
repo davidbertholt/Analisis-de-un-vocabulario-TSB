@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tpfinal.procesarArchivo;
+package ProcesarArchivo;
 
 import java.io.File;
 import java.util.List;
-import tpfinal.Maestro;
+import Sub_Palabra.Maestro;
 
 /**
  *
@@ -25,11 +25,12 @@ public class GestorProcesarArchivos {
     }
     
     public Maestro procesarArchivo(){
-        Maestro contenedorAux = new Maestro();
+        Maestro contenedorAux;
         List<String> renglones;
         
         renglones = primeraEtapa.run();
         
+        contenedorAux = segundaEtapa.run(renglones, archivo);
         
         return contenedorAux;
     }

@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tpfinal.procesarArchivo;
+package ProcesarArchivo;
 
+import java.io.File;
 import java.util.List;
-import tpfinal.Maestro;
+import Sub_Palabra.Maestro;
 
 /**
  *
@@ -14,7 +15,7 @@ import tpfinal.Maestro;
  */
 public class CortarPalabraPorPalabra {
     
-    public Maestro run(List<String> lista){
+    public Maestro run(List<String> lista, File archivo){
         Maestro contenedor = new Maestro();
         
         
