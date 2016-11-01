@@ -126,9 +126,6 @@ public class SimpleList implements Iterable, Serializable
                     q.getInfo().aumentarFrecuencia();
                 }
             }
-        
-        
-        
       }
       
       public void addInOrder(Detalle x)

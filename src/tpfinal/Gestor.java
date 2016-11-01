@@ -8,6 +8,7 @@ package tpfinal;
 import ProcesarArchivo.GestorProcesarArchivos;
 import Sub_Palabra.Maestro;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,18 +22,17 @@ public class Gestor {
     
     public Gestor(List<File> colaArchivos) {
         this.colaArchivos = colaArchivos;
-        this.palabras = new Maestro();
      }
     
     //Cambiar a procesamiento con hilos.
     public void procesarArchivos(){
-      /*  List<Maestro> maestros = new ArrayList<>();
-        for (File e : archivos) {
+        List<Maestro> maestros = new ArrayList<>();
+        for (File e : colaArchivos) {
             maestros.add(procesarArchivoIndividual(e));
-        }*/
-        File e = colaArchivos.get(0);
+        }
         
-        palabras = procesarArchivoIndividual(e);
+        palabras = new Maestro(maestros);
+        palabras.mostrarMap();
     }
         
     private Maestro procesarArchivoIndividual(File archivo){
@@ -48,7 +48,12 @@ public class Gestor {
         return palabras.cantidadDePalabras();
     }
     
+    @Override
     public String toString(){
         return palabras.toString();
+    }
+    
+    public void mostrarMapa(){
+        palabras.mostrarMap();
     }
 }

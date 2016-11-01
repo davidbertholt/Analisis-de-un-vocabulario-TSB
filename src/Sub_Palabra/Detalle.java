@@ -33,9 +33,7 @@ public class Detalle implements Comparable<Detalle>{
         this.frecuencia = frecuencia;
     }
 
-    public List getArchivo() {
-        return archivo;
-    }
+  
 
     public void agregarArchivo(File archivo) {
         this.archivo.add(archivo);
@@ -73,5 +71,26 @@ public class Detalle implements Comparable<Detalle>{
     
     public boolean esPalabraAlfabetoMayorIgual(String x){
        return  palabra.esPalabraAlfabetoMayorIgual(x);
+    }
+    
+    public void compararArchivos(File nuevo){
+        boolean control = false;
+        for (File file : archivo) {
+            if(nuevo==file){
+                control = true;
+                break;
+            }
+        }
+        if(control){
+            archivo.add(nuevo);
+        }
+    }
+    
+    public File getArchivo(){
+        return archivo.get(0);
+    }
+    
+    public void sumarFrecuencias(int nueva){
+        frecuencia+=nueva;
     }
 }
