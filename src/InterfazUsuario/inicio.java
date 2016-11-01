@@ -1,5 +1,5 @@
 
-package tpfinal;
+package InterfazUsuario;
 
 import java.io.BufferedReader;
 import java.io.File;

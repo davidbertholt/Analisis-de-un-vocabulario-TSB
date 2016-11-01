@@ -41,17 +41,15 @@ public class CortarPalabraPorPalabra {
            
            if(validarCaracter(c)){
               
-              aux = aux.toUpperCase();
+              aux = formatoPalabra(aux);
                maestro.procesarPalabra(aux, archivo);
                aux = "";
            }else{
                aux+=c;
            }
        }
-       aux = aux.toUpperCase();
+       aux = formatoPalabra(aux);
        maestro.procesarPalabra(aux, archivo);
-       
-       System.out.println(sl.getCantidad());
        
        return maestro;
    }
@@ -59,4 +57,15 @@ public class CortarPalabraPorPalabra {
     private boolean validarCaracter(char c){
         return (c == ' ');
     }
+    
+    private String formatoPalabra(String palabra){
+        palabra = quitarSignos(palabra);
+        palabra = palabra.toUpperCase();
+        return palabra;
+    }
+    
+    private static String quitarSignos(String hilera1) {
+     // return hilera1.replaceAll("\\p{Punct}", ""); 
+    return hilera1.replaceAll("[^\\dA-Za-z ]", "");
+}
 }

@@ -64,15 +64,20 @@ public class SimpleList implements Iterable, Serializable
             boolean banderaCicloPalabraIgual = true;
             boolean banderaCicloOrden = true;
             
+            
+            
             while ( p != null && banderaCicloPalabraIgual && banderaCicloOrden )
             {
-                if(palabra.compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) == 0){
+                System.out.println(palabra + " = " + p.getInfo().getPalabra().getNombre());
+                if(palabra.equalsIgnoreCase(p.getInfo().getPalabra().getNombre() )){
                     p.getInfo().aumentarFrecuencia();
                     banderaCicloPalabraIgual = false;
+                    System.out.println("PALABRA EXISTE");
                 }
                 
                 if(palabra.compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) < 0){
                     banderaCicloOrden = false;
+                    System.out.println("NOS UBICAMOS ACA");
                 }
                 
                 q = p;
@@ -87,6 +92,14 @@ public class SimpleList implements Iterable, Serializable
             else frente = nuevo;
             cantidad++;  
             } 
+            
+            if(frente == null){
+            Detalle x = new Detalle(palabra, archivo);
+            Node nuevo = new Node( x, null );
+            frente = nuevo;
+            cantidad++;
+            }
+            System.out.println(cantidad);
       }
       
       public void addInOrder(Detalle x)
@@ -286,7 +299,7 @@ public class SimpleList implements Iterable, Serializable
     @Override
       public String toString()
       {
-             StringBuilder res = new StringBuilder( "[ " );
+             StringBuilder res = new StringBuilder( "[ \n" );
              for( Node p = frente; p != null;  p = p.getNext() )
              {
                 res.append( p.toString() + "\n" );
@@ -302,6 +315,10 @@ public class SimpleList implements Iterable, Serializable
             if ( frente != null && x.getClass() != frente.getInfo().getClass() ) return false;
             return true;
       }
+
+    public String getPalabraYFrecuencia() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
       
       private class SimpleListIterator implements Iterator
       {

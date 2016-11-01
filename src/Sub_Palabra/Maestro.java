@@ -25,4 +25,12 @@ public class Maestro {
     public void procesarPalabra(String palabra, File archivo){
         detallepalabras.procesarPalabra(palabra, archivo);
     }
+    
+    public int cantidadDePalabras(){
+        return detallepalabras.getCantidad();
+    }
+    
+    public String toString(){
+        return detallepalabras.toString();
+    }
 }

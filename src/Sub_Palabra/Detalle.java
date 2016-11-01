@@ -69,4 +69,9 @@ public class Detalle implements Comparable<Detalle>{
     public int cantidadDeArchivos(){
         return archivo.size();
     }
+
+    @Override
+    public String toString() {
+    return palabra.getNombre() + " - Frecuencia: " + frecuencia;
+    }    
 }

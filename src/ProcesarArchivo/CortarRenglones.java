@@ -50,12 +50,11 @@ public class CortarRenglones {
             
          listaAux.add(linea);
          
-         
          i++;
         
          linea = ifile.readLine();
        }
-            System.out.println("********************FIN********************++");
+            System.out.println("********************FIN PRIMERA ETAPA - Cantidad de Renglones: " + listaAux.size() + " ********************");
        ifile.close();
        in.close();
       }
