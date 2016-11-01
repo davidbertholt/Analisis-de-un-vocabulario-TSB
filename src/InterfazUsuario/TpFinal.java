@@ -27,7 +27,8 @@ public class TpFinal {
         Gestor g = new Gestor(lista);
         
         g.procesarArchivos();
-        //System.out.println("Palabras: " + g.toString());
+        System.out.println("Palabras: " + g.toString());
+        System.out.println(g.cantidadDePalabras());
         
     }
     

@@ -1,0 +1,44 @@
+public void addInOrder(Detalle x)
+      {
+            
+            
+            Node nuevo = new Node( x, null );
+            Node p = frente, q = null;
+            while ( p != null && x.getPalabra().getNombre().compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) >= 0 )
+            {
+                q = p;
+                p = p.getNext();
+            }
+            nuevo.setNext( p );
+            if( q != null ) q.setNext( nuevo );
+            else frente = nuevo;
+            cantidad++;
+      }             
+
+
+ESTE FUNCIONA!
+
+public void addInOrder(Detalle x)
+      {
+            Node nuevo = new Node( x, null );
+            Node p = frente, q = null;
+            while ( p != null && x.getPalabra().getNombre().compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) >= 0 )
+            {
+                q = p;
+                p = p.getNext();
+            }
+            
+            if(q == null){
+               nuevo.setNext(p);
+                frente = nuevo;
+                cantidad++;
+            }else{
+                if(x.getPalabra().getNombre().compareToIgnoreCase(q.getInfo().getPalabra().getNombre() ) > 0){
+                    nuevo.setNext(p);
+                q.setNext(nuevo);
+                cantidad++;
+                }else{
+                    q.getInfo().aumentarFrecuencia();
+                }
+            }
+      }      

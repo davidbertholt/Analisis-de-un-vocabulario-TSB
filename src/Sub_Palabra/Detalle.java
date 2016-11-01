@@ -49,12 +49,8 @@ public class Detalle implements Comparable<Detalle>{
         this.palabra = palabra;
     }
     
-    public boolean existePalabra(String palabraNueva){
-        if(this.palabra.esIgual(palabraNueva)){
-            frecuencia++;
-            return true;
-        }
-        return false;   
+    public boolean esMismaPalabra(String palabraNueva){
+        return this.palabra.esIgual(palabraNueva); 
     }
     
     public void aumentarFrecuencia(){
@@ -74,4 +70,8 @@ public class Detalle implements Comparable<Detalle>{
     public String toString() {
     return palabra.getNombre() + " - Frecuencia: " + frecuencia;
     }    
+    
+    public boolean esPalabraAlfabetoMayorIgual(String x){
+       return  palabra.esPalabraAlfabetoMayorIgual(x);
+    }
 }

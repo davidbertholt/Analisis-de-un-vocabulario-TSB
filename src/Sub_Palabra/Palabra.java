@@ -36,5 +36,7 @@ public class Palabra {
         return nombre.equalsIgnoreCase(palabra);
     }
     
-    
+    public boolean esPalabraAlfabetoMayorIgual(String x){
+        return x.compareToIgnoreCase(nombre)>=0;
+    }
 }

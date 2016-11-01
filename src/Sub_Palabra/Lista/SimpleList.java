@@ -58,7 +58,7 @@ public class SimpleList implements Iterable, Serializable
             cantidad++;
       }  
       
-      public void procesarPalabra(String palabra, File archivo){
+      public void procesarPalabra1(String palabra, File archivo){
           
             Node p = frente, q = null;
             boolean banderaCicloPalabraIgual = true;
@@ -102,10 +102,37 @@ public class SimpleList implements Iterable, Serializable
             System.out.println(cantidad);
       }
       
+      
+      public void procesarPalabra(String palabra, File archivo){
+            Detalle x = new Detalle(palabra, archivo);
+            Node nuevo = new Node( x, null );
+            Node p = frente, q = null;
+            while ( p != null && x.getPalabra().getNombre().compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) >= 0 )
+            {
+                q = p;
+                p = p.getNext();
+            }
+            
+            if(q == null){
+               nuevo.setNext(p);
+                frente = nuevo;
+                cantidad++;
+            }else{
+                if(x.getPalabra().getNombre().compareToIgnoreCase(q.getInfo().getPalabra().getNombre() ) > 0){
+                    nuevo.setNext(p);
+                q.setNext(nuevo);
+                cantidad++;
+                }else{
+                    q.getInfo().aumentarFrecuencia();
+                }
+            }
+        
+        
+        
+      }
+      
       public void addInOrder(Detalle x)
       {
-            
-            
             Node nuevo = new Node( x, null );
             Node p = frente, q = null;
             while ( p != null && x.getPalabra().getNombre().compareToIgnoreCase(p.getInfo().getPalabra().getNombre() ) >= 0 )
