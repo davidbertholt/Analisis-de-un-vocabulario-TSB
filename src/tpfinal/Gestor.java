@@ -32,7 +32,7 @@ public class Gestor {
         }
         
         palabras = new Maestro(maestros);
-        palabras.mostrarMap();
+        System.out.println(palabras.getTreeMap().size());
     }
         
     private Maestro procesarArchivoIndividual(File archivo){

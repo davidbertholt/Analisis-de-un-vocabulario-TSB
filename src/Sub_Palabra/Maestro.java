@@ -27,6 +27,7 @@ public class Maestro {
     }
     
     public Maestro(List<Maestro> lista){
+        detallepalabras = new SimpleList();
         treeMap = new TreeMap<>();
         combinarDetalles(lista);
     }
@@ -49,7 +50,6 @@ public class Maestro {
             aux = new Detalle(palabra, archivo);
             treeMap.put(palabra, aux);
         }
-        System.out.println(treeMap.size());
     }
     
     public int cantidadDePalabras(){

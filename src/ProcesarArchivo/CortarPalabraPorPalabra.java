@@ -14,6 +14,7 @@ import Sub_Palabra.Maestro;
  * @author Lucas
  */
 public class CortarPalabraPorPalabra {
+    private int contadorPalabras = 0;
     
     public Maestro run(List<String> lista, File archivo){
         Maestro contenedor = new Maestro();
@@ -22,7 +23,7 @@ public class CortarPalabraPorPalabra {
             char[] renglonAux = convertirStrintAChar(renglon);
             contenedor = valuarArray(renglonAux, contenedor, archivo);
         }
-        
+        System.out.println("----------FIN SEGUNDA ETAPA Cantidad de palabras: " + contadorPalabras + " ----------------");
         return contenedor;
     }
     
@@ -61,6 +62,7 @@ public class CortarPalabraPorPalabra {
     private String formatoPalabra(String palabra){
         palabra = quitarSignos(palabra);
         palabra = palabra.toUpperCase();
+        contadorPalabras++;
         return palabra;
     }
     
